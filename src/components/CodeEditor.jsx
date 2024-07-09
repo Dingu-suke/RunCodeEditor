@@ -28,7 +28,7 @@ const CodeEditor = () => {
         language={language}
         defaultValue="// some comment"
         onMount={onMount}
-        value={value}
+        value={CODE_SNIPPETS[language]}
         onChange={(value) => setValue(value)}
       />
     </Box>
