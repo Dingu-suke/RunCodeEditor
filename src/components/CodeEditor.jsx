@@ -2,6 +2,7 @@ import { Box } from '@chakra-ui/react';
 import { Editor } from '@monaco-editor/react';
 import { useRef, useState } from 'react';
 import LanguageSelector from './LanguageSelector';
+import { CODE_SNIPPETS } from '../constants';
 
 const CodeEditor = () => {
   const editorRef = useRef();
@@ -9,6 +10,7 @@ const CodeEditor = () => {
   const [language, setLanguage] = useState('javascript');
   
   const onSelect = (language) => {
+    setValue(CODE_SNIPPETS[language]);
     setLanguage(language);
   };
 
