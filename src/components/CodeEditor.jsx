@@ -3,6 +3,7 @@ import { Editor } from '@monaco-editor/react';
 import { useRef, useState } from 'react';
 import LanguageSelector from './LanguageSelector';
 import { CODE_SNIPPETS } from '../constants';
+import Output from './Output';
 
 const CodeEditor = () => {
   const editorRef = useRef();
@@ -21,16 +22,21 @@ const CodeEditor = () => {
 
   return (
     <Box>
-      <LanguageSelector language={language} onSelect={onSelect}/>
-      <Editor
-        height="90vh"
-        theme="vs-dark"
-        language={language}
-        defaultValue="// some comment"
-        onMount={onMount}
-        value={CODE_SNIPPETS[language]}
-        onChange={(value) => setValue(value)}
-      />
+      <Box>
+        <LanguageSelector language={language} onSelect={onSelect}/>
+        <Editor
+          height="30vh"
+          theme="vs-dark"
+          language={language}
+          defaultValue="// some comment"
+          onMount={onMount}
+          value={CODE_SNIPPETS[language]}
+          onChange={(value) => setValue(value)}
+        />
+      </Box>
+      <Box>
+        <Output editorRef={editorRef} language={language} />
+      </Box>
     </Box>
   );
 };
