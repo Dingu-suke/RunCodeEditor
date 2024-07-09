@@ -9,11 +9,6 @@ const CodeEditor = () => {
   const editorRef = useRef();
   const [value, setValue] = useState('');
   const [language, setLanguage] = useState('javascript');
-  useEffect(
-    () => {
-      
-    } 
-    ,[])
   
   const onSelect = (language) => {
     setValue(CODE_SNIPPETS[language]);
